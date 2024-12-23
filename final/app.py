@@ -13,7 +13,7 @@ app.register_blueprint(postb)
 if __name__ == '__main__':
     app.run()
 
-#taking a tip out of the finance and using filesystem instead of signed cookies
+#taking a tip out of week 9 finance and using filesystem instead of signed cookies
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
@@ -103,4 +103,5 @@ def logout():
     #clear session
     session.clear()
     #bring user back to main page
+    flash('You\'re logged out!')
     return redirect("/")
