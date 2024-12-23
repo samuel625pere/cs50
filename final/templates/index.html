@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    {% if session["user_id"] %}
+    <h1 style="text-align: center; margin: auto;">Welcome Home!</h1>
+
+    <h2 style="text-align: center; margin: auto;">Check if you missed anything new:</h2>
+
+    <table style="text-align: center;" class="table table-striped">
+        <tr>
+            <th>Post id</th>
+            <th>Title</th>
+            <th>Time of posting</th>
+        </tr>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>posted: {{ post.timestamp }}</td>
+                <td><a href="{{ url_for('postb.display_post',post_id=post.id) }} " class="btn btn-success">read it</a</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2 style="text-align: center; margin: auto;">Welcome Visitor!</h2>
+    {% endif %}
+
+{% endblock %}

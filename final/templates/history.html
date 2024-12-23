@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Posting history
+{% endblock %}
+
+{% block main %}
+    <h2>Your posts are listed here</h2>
+
+    <table style="text-align: center;" class="table table-striped">
+        <tr>
+            <th>Post id</th>
+            <th>Title</th>
+            <th>Time of posting</th>
+        </tr>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>posted: {{ post.timestamp }}</td>
+                <td><a href="{{ url_for('postb.display_post',post_id=post.id) }}" class="btn btn-success">read it</a</td>
+                <td><a href="{{ url_for('postb.delete_post',post_id=post.id) }}" class="btn btn-danger">remove it</a</td>    
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

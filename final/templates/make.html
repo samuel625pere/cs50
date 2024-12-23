@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Make a new post!
+{% endblock %}
+
+{% block main %}
+<form action="/post/make" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="title" placeholder="Post title" type="text">
+    </div>
+    <div class="mb-3">
+        <textarea class="form-control mx-auto w-auto" name="content" placeholder="Write your post here" type="text" rows="4" cols="50">
+        </textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Send Post</button>
+</form>
+{% endblock %}

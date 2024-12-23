@@ -1,0 +1,6 @@
+lembrar de user esse comando para começar
+source env/bin/activate
+e este para terminar
+deactivate
+
+lembra de usar flask com "flask run --debug"
