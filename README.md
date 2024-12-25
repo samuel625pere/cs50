@@ -22,11 +22,19 @@ the blueprint functionality of flask, plus a little inspiration from finance.
 
 ### Tools used
 
+The application was edited using visual studio code with the help of the windows WSL
+using ubuntu and the linux distro.
+
 The language used for the scripts was python, alongside the [Flask](https://flask.palletsprojects.com/en/latest/) library,
 as a framework for a webserver, the pages were designed using bootstrap 5
 for the looks and flask's compatibity with jinja to streamline looks
 and display the data, the database was made in sqlite3 and was connected to it
 by the python sqlite3 library throughout the application.
+The bleach library was used to sanitize any code with probable malicious
+application.
+
+As for non code tools: the favicon was picked from icons8, and the grumpy cat
+meme was sourced from imgur and generated using [memegen](https://github.com/jacebrowning/memegen) api.
 
 ### handler.py
 
@@ -49,7 +57,8 @@ login and logout mechanisms for the page.
 In this script I have elected to house the post related routes.
 
 I't has a display route (not restricted by design) were users
-can see specific posts if the have the posts ID.
+can see specific posts if the have the posts ID, since the text can be a html
+this route has the clean function from bleach to stop cross-site scripting.
 
 A history route so users can see and delete their own posts 
 in a single page, with a single button.

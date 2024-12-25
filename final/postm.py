@@ -1,6 +1,7 @@
 from flask import Flask, flash, redirect, render_template, request, session, Blueprint
 from handler import login_required, sorry
 import sqlite3
+import bleach
 
 postb = Blueprint('postb', __name__,url_prefix='/post')
 
@@ -18,6 +19,7 @@ def display_post(post_id):
         #same as previous route dif name to avoid confusion
         dictr = [dict(row) for row in rows]
         post = dictr[0]
+        post["content"] = bleach.clean(post["content"])
         conn.close()
     except:
         sorry("try a valid post id")
