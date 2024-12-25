@@ -19,6 +19,7 @@ def display_post(post_id):
         #same as previous route dif name to avoid confusion
         dictr = [dict(row) for row in rows]
         post = dictr[0]
+        #minor cleanup to avoid cross-side headaches
         post["content"] = bleach.clean(post["content"])
         conn.close()
     except:
