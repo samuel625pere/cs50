@@ -1,5 +1,5 @@
 from flask import Flask, flash, redirect, render_template, request, session, Blueprint
-from logger import login_required, sorry
+from handler import login_required, sorry
 import sqlite3
 
 postb = Blueprint('postb', __name__,url_prefix='/post')
@@ -15,7 +15,7 @@ def display_post(post_id):
         cursor = conn.cursor()
         cursor.execute("SELECT title, content FROM blog_posts WHERE id = ?",(post_id,))
         rows = cursor.fetchall()
-    #same as previous route dif name to avoid confusion
+        #same as previous route dif name to avoid confusion
         dictr = [dict(row) for row in rows]
         post = dictr[0]
         conn.close()
@@ -27,8 +27,8 @@ def display_post(post_id):
 @postb.route("/history",methods=['GET','POST'])
 @login_required
 def history():
+
     uid = session['user_id']
-    
     conn = sqlite3.connect('social.db')
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()

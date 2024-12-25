@@ -2,7 +2,7 @@
 from flask import Flask, flash, redirect, render_template, request, session
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_session import Session
-from logger import login_required, sorry
+from handler import login_required, sorry
 from postm import postb
 import sqlite3
 
@@ -24,7 +24,7 @@ def index():
     conn = sqlite3.connect('social.db')
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM blog_posts")
+    cursor.execute("SELECT * FROM blog_posts ORDER BY timestamp DESC")
     rows = cursor.fetchall()
     #same as previous route dif name to avoid confusion
     posts = [dict(row) for row in rows]
