@@ -26,9 +26,13 @@ The application was edited using visual studio code with the help of the windows
 using ubuntu and the linux distro.
 
 The language used for the scripts was python, alongside the [Flask](https://flask.palletsprojects.com/en/latest/) library,
-as a framework for a webserver, the pages were designed using bootstrap 5
-for the looks and flask's compatibity with jinja to streamline looks
-and display the data, the database was made in sqlite3 and was connected to it
+as a framework for a webserver.
+
+The html pages were designed using bootstrap 5 
+and in order to simplify and streamline their look Jinja 2 was used for both its
+functionality for creating layouts and displaying the requested data from the database.
+
+To supply the application a database was made in sqlite3 and was connected to it
 by the python sqlite3 library throughout the application.
 The bleach library was used to sanitize any code with probable malicious
 application.
@@ -79,3 +83,7 @@ of a user.
 The blog_posts table holds the post id, the post title, it's content,
 the timestamp of when it was posted and the user id of author of the
 post.
+
+### style.css
+
+Simple css script to style the big index LOGO.
