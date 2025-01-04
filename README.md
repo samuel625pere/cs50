@@ -1,4 +1,4 @@
-# Final Project: SAM's tree house
+# SAM's tree house
 
 ## introduction
 
